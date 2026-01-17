@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="index.css" />
+    <title>Friends Page</title>
+  </head>
+  <body class="bg-gradient-to-br from-purple-600 to-blue-500 min-h-screen">
+    <div class="max-w-6xl mx-auto p-4 sm:p-6">
+      <nav class="bg-white rounded-xl shadow p-4 relative">
+        <div class="flex items-center justify-between">
+          <a href="index.html">
+            <h1 class="text-2xl font-bold text-gray-900">
+              Meme<span class="text-pink-500">Quest</span>
+            </h1>
+          </a>
+          <button
+            id="burger-btn"
+            class="sm:hidden text-gray-700 focus:outline-none"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+
+          <div class="hidden sm:flex gap-4 text-gray-700 font-medium">
+            <a href="homePage.html" class="hover:text-pink-500">Home</a>
+            <a href="createPage.html" class="hover:text-pink-500">Create</a>
+            <a href="votePage.html" class="hover:text-pink-500">Vote</a>
+            <a href="leaderboardPage.html" class="hover:text-pink-500"
+              >Leaderboard</a
+            >
+            <a href="historyPage.html" class="hover:text-pink-500">History</a>
+            <a href="friendsPage.html" class="hover:text-pink-500">Friends</a>
+          </div>
+        </div>
+
+        <div
+          id="nav-links"
+          class="hidden flex flex-col gap-2 mt-4 sm:hidden text-gray-700 font-medium"
+        >
+          <a
+            href="homePage.html"
+            class="hover:text-pink-500 py-3 px-4 bg-gray-100 rounded-lg text-center"
+            >Home</a
+          >
+          <a
+            href="createPage.html"
+            class="hover:text-pink-500 py-3 px-4 bg-gray-100 rounded-lg text-center"
+            >Create</a
+          >
+          <a
+            href="votePage.html"
+            class="hover:text-pink-500 py-3 px-4 bg-gray-100 rounded-lg text-center"
+            >Vote</a
+          >
+          <a
+            href="leaderboardPage.html"
+            class="hover:text-pink-500 py-3 px-4 bg-gray-100 rounded-lg text-center"
+            >Leaderboard</a
+          >
+          <a
+            href="historyPage.html"
+            class="hover:text-pink-500 py-3 px-4 bg-gray-100 rounded-lg text-center"
+            >History</a
+          >
+          <a
+            href="friendsPage.html"
+            class="hover:text-pink-500 py-3 px-4 bg-gray-100 rounded-lg text-center"
+            >Friends</a
+          >
+        </div>
+      </nav>
+    </div>
+    <main class="max-w-4xl mx-auto mt-10 p-4 bg-white rounded-2xl shadow">
+      <h1 class="text-3xl font-bold text-gray-900 text-center">Friends</h1>
+
+      <div class="mt-6">
+        <input
+          type="text"
+          placeholder="Search friends..."
+          class="w-full sm:w-auto border border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
+        />
+      </div>
+
+      <div class="mt-6 flex flex-col gap-4 max-h-[60vh] overflow-y-auto">
+        <div
+          class="flex items-center justify-between p-2 rounded-xl hover:bg-gray-100 transition"
+        >
+          <div class="flex items-center gap-4">
+            <img
+              src="images/avatar1.jpg"
+              class="w-12 h-12 rounded-full object-cover"
+              alt="Alice"
+            />
+            <span class="font-medium text-gray-800">Alice</span>
+          </div>
+          <button
+            class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-1 px-4 rounded-xl transition"
+          >
+            Follow
+          </button>
+        </div>
+
+        <div
+          class="flex items-center justify-between p-2 rounded-xl hover:bg-gray-100 transition"
+        >
+          <div class="flex items-center gap-4">
+            <img
+              src="images/avatar2.jpg"
+              class="w-12 h-12 rounded-full object-cover"
+              alt="Bob"
+            />
+            <span class="font-medium text-gray-800">Bob</span>
+          </div>
+          <button
+            class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-1 px-4 rounded-xl transition"
+          >
+            Follow
+          </button>
+        </div>
+
+        <div
+          class="flex items-center justify-between p-2 rounded-xl hover:bg-gray-100 transition"
+        >
+          <div class="flex items-center gap-4">
+            <img
+              src="images/avatar3.jpg"
+              class="w-12 h-12 rounded-full object-cover"
+              alt="Charlie"
+            />
+            <span class="font-medium text-gray-800">Charlie</span>
+          </div>
+          <button
+            class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-1 px-4 rounded-xl transition"
+          >
+            Follow
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const burgerBtn = document.getElementById("burger-btn");
+      const navLinks = document.getElementById("nav-links");
+
+      burgerBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>

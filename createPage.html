@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="index.css" />
+    <title>Create Page</title>
+  </head>
+  <body class="bg-gradient-to-br from-purple-600 to-blue-500 min-h-screen">
+    <div class="max-w-6xl mx-auto p-4 sm:p-6">
+      <nav class="bg-white rounded-xl shadow p-4 relative">
+        <div class="flex items-center justify-between">
+          <a href="index.html">
+            <h1 class="text-2xl font-bold text-gray-900">
+              Meme<span class="text-pink-500">Quest</span>
+            </h1>
+          </a>
+          <button
+            id="burger-btn"
+            class="sm:hidden text-gray-700 focus:outline-none"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+
+          <div class="hidden sm:flex gap-4 text-gray-700 font-medium">
+            <a href="homePage.html" class="hover:text-pink-500">Home</a>
+            <a href="createPage.html" class="hover:text-pink-500">Create</a>
+            <a href="votePage.html" class="hover:text-pink-500">Vote</a>
+            <a href="leaderboardPage.html" class="hover:text-pink-500"
+              >Leaderboard</a
+            >
+            <a href="historyPage.html" class="hover:text-pink-500">History</a>
+            <a href="friendsPage.html" class="hover:text-pink-500">Friends</a>
+          </div>
+        </div>
+
+        <div
+          id="nav-links"
+          class="hidden flex flex-col gap-2 mt-4 sm:hidden text-gray-700 font-medium"
+        >
+          <a
+            href="homePage.html"
+            class="hover:text-pink-500 py-3 px-4 bg-gray-100 rounded-lg text-center"
+            >Home</a
+          >
+          <a
+            href="createPage.html"
+            class="hover:text-pink-500 py-3 px-4 bg-gray-100 rounded-lg text-center"
+            >Create</a
+          >
+          <a
+            href="votePage.html"
+            class="hover:text-pink-500 py-3 px-4 bg-gray-100 rounded-lg text-center"
+            >Vote</a
+          >
+          <a
+            href="leaderboardPage.html"
+            class="hover:text-pink-500 py-3 px-4 bg-gray-100 rounded-lg text-center"
+            >Leaderboard</a
+          >
+          <a
+            href="historyPage.html"
+            class="hover:text-pink-500 py-3 px-4 bg-gray-100 rounded-lg text-center"
+            >History</a
+          >
+          <a
+            href="friendsPage.html"
+            class="hover:text-pink-500 py-3 px-4 bg-gray-100 rounded-lg text-center"
+            >Friends</a
+          >
+        </div>
+      </nav>
+    </div>
+
+    <main
+      class="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-2xl shadow text-center"
+    >
+      <!-- Meme Text -->
+      <h1 class="text-3xl font-bold text-gray-900">Create Meme</h1>
+      <p class="mt-2 text-gray-700 italic">
+        "When your WiFi drops right as you are about to win the game"
+      </p>
+
+      <!-- Meme Image Container -->
+      <div
+        id="meme-container"
+        class="mt-6 w-full h-64 border-4 border-dashed border-gray-300 rounded-xl flex items-center justify-center bg-gray-50"
+      >
+        <span class="text-gray-400">Your meme will appear here</span>
+      </div>
+
+      <!-- Upload / Choose Random Image Button -->
+      <button
+        id="upload-btn"
+        class="mt-6 bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-xl transition"
+        onclick="chooseRandomImage()"
+      >
+        Upload Image
+      </button>
+    </main>
+
+    <script>
+      // Array of demo images
+      const images = [
+        "images/img1.jpg",
+        "images/img2.jpg",
+        "images/img3.jpg",
+        "images/img4.jpg",
+        "images/img5.jpg",
+      ];
+
+      function chooseRandomImage() {
+        const container = document.getElementById("meme-container");
+        const button = document.getElementById("upload-btn");
+
+        // Pick a random image
+        const randomIndex = Math.floor(Math.random() * images.length);
+        const selectedImage = images[randomIndex];
+
+        // Clear previous content in the container
+        container.innerHTML = "";
+
+        // Create image element
+        const img = document.createElement("img");
+        img.src = selectedImage;
+        img.className = "max-h-64 object-contain rounded-xl";
+        container.appendChild(img);
+
+        // Update button text to show image was selected
+        button.textContent = "Image Selected!";
+        button.classList.remove("bg-pink-500");
+        button.classList.add("bg-green-500");
+      }
+
+      const burgerBtn = document.getElementById("burger-btn");
+      const navLinks = document.getElementById("nav-links");
+
+      burgerBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
