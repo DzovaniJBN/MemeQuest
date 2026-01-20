@@ -88,13 +88,11 @@
     <main
       class="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-2xl shadow text-center"
     >
-      <!-- Meme Text -->
       <h2 class="text-2xl font-bold text-gray-900">Vote on Meme</h2>
       <p class="mt-2 text-gray-700 italic">
         "When your WiFi drops right as you are about to win the game"
       </p>
 
-      <!-- Meme Image Container -->
       <div
         id="vote-container"
         class="mt-6 w-full h-64 border-4 border-dashed border-gray-300 rounded-xl flex items-center justify-center bg-gray-50"
@@ -102,15 +100,16 @@
         <span class="text-gray-400">User's meme will appear here</span>
       </div>
 
-      <!-- Voting Buttons -->
       <div class="mt-6 flex justify-center gap-6">
         <button
+          id="vote-button"
           class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-xl transition"
           onclick="vote(-1)"
         >
           -1
         </button>
         <button
+          id="vote-button"
           class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-xl transition"
           onclick="vote(1)"
         >
@@ -118,36 +117,31 @@
         </button>
       </div>
 
-      <!-- Confirmation Message -->
       <p id="vote-msg" class="mt-4 text-gray-700 font-medium hidden">
         Saved your answer!
       </p>
     </main>
 
     <script>
-      // Demo: simulate a user-uploaded meme image
-      const userMemeImage = "images/img1.jpg"; // pick one for prototype
+      const userMemeImage = "images/img1.jpg";
       const container = document.getElementById("vote-container");
 
-      // Display the meme image
       const img = document.createElement("img");
       img.src = userMemeImage;
       img.className = "max-h-64 object-contain rounded-xl";
-      container.innerHTML = ""; // clear placeholder
+      container.innerHTML = "";
       container.appendChild(img);
 
       function vote(value) {
         const msg = document.getElementById("vote-msg");
 
-        // Show confirmation
         msg.classList.remove("hidden");
 
-        // Optional: disable buttons after voting
         document
-          .querySelectorAll("button")
+          .getElementById("vote-button")
           .forEach((btn) => (btn.disabled = true));
 
-        console.log("User voted:", value); // For prototype tracking
+        console.log("User voted:", value);
       }
 
       const burgerBtn = document.getElementById("burger-btn");
