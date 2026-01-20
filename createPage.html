@@ -110,7 +110,6 @@
     </main>
 
     <script>
-      // Array of demo images
       const images = [
         "images/img1.jpg",
         "images/img2.jpg",
@@ -123,20 +122,16 @@
         const container = document.getElementById("meme-container");
         const button = document.getElementById("upload-btn");
 
-        // Pick a random image
         const randomIndex = Math.floor(Math.random() * images.length);
         const selectedImage = images[randomIndex];
 
-        // Clear previous content in the container
         container.innerHTML = "";
 
-        // Create image element
         const img = document.createElement("img");
         img.src = selectedImage;
         img.className = "max-h-64 object-contain rounded-xl";
         container.appendChild(img);
 
-        // Update button text to show image was selected
         button.textContent = "Image Selected!";
         button.classList.remove("bg-pink-500");
         button.classList.add("bg-green-500");
